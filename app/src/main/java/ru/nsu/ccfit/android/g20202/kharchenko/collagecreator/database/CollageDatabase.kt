@@ -4,11 +4,13 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 @Database(entities = arrayOf(Collage::class), version = 1, exportSchema = false)
+@TypeConverters(Converters::class)
 abstract class CollageDatabase : RoomDatabase() {
 
     abstract fun collageDao(): CollageDao
@@ -21,15 +23,25 @@ abstract class CollageDatabase : RoomDatabase() {
             super.onCreate(db)
             INSTANCE?.let { database ->
                 scope.launch {
-                    var collageDao = database.collageDao()
+                    val collageDao = database.collageDao()
 
                     var collage = Collage("Collage One", 3, 3)
+                    collage.uriList = arrayListOf(null, null, null,
+                        null, null, null,
+                        null, null, null)
                     collageDao.insert(collage)
 
-                    collage = Collage("Collage Two", 3, 3)
+                    collage = Collage("Collage Two", 3, 4)
+                    collage.uriList = arrayListOf(null, null, null,
+                        null, null, null,
+                        null, null, null,
+                        null, null, null)
                     collageDao.insert(collage)
 
-                    collage = Collage("Collage Three", 3, 3)
+                    collage = Collage("Collage Three", 4, 3)
+                    collage.uriList = arrayListOf(null, null, null, null,
+                        null, null, null, null,
+                        null, null, null, null)
                     collageDao.insert(collage)
                 }
             }

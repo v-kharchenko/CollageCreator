@@ -33,8 +33,6 @@ class CollageListAdapter : ListAdapter<Collage, CollageListAdapter.CollageViewHo
             collageItemView.setOnClickListener {
                 val bundle = Bundle()
                 bundle.putInt("id", collage.id)
-                bundle.putInt("rowCount", 3)
-                bundle.putInt("columnCount", 4)
                 collageItemView.findNavController().navigate(R.id.action_fragment_collage_list_to_fragment_collage_editor, bundle)
             }
         }

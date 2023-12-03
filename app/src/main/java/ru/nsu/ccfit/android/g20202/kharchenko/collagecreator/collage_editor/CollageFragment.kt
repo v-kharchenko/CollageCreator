@@ -38,7 +38,11 @@ class CollageFragment : Fragment() {
         super.onCreate(savedInstanceState)
         arguments?.let {
             columnCount = it.getInt(COLUMN_COUNT)
+            if (columnCount == 0) columnCount = 1
+
             rowCount = it.getInt(ROW_COUNT)
+            if (rowCount == 0) rowCount = 1
+
             id = it.getInt(ID)
         }
     }
@@ -58,7 +62,8 @@ class CollageFragment : Fragment() {
             rowCount = collage.rowCount
             columnCount = collage.columnCount
             (binding.imagesRecyclerView.layoutManager as GridLayoutManager).spanCount = columnCount
-
+            dataSet = collage.uriList as ArrayList<Uri?>
+            (binding.imagesRecyclerView.adapter as ImageAdapter).submitDataset(dataSet)
         }
 
         setupCollageEditor()

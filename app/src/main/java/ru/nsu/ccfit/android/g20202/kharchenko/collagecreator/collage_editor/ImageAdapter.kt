@@ -8,7 +8,7 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import ru.nsu.ccfit.android.g20202.kharchenko.collagecreator.R
 
-class ImageAdapter(private val dataSet: ArrayList<Uri?>):
+class ImageAdapter(private var dataSet: ArrayList<Uri?>):
     RecyclerView.Adapter<ImageAdapter.ViewHolder>() {
     private var onClickListener: OnClickListener? = null
 
@@ -51,6 +51,11 @@ class ImageAdapter(private val dataSet: ArrayList<Uri?>):
 
     fun setOnClickListener(onClickListener: OnClickListener) {
         this.onClickListener = onClickListener
+    }
+
+    fun submitDataset(dataSet: ArrayList<Uri?>) {
+        this.dataSet = dataSet
+        this.notifyDataSetChanged()
     }
 
     interface OnClickListener {

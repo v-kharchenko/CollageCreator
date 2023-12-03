@@ -1,5 +1,6 @@
 package ru.nsu.ccfit.android.g20202.kharchenko.collagecreator.database
 
+import android.net.Uri
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -12,4 +13,5 @@ data class Collage(
     @ColumnInfo(name = "row_count") var rowCount: Int = 0
 ) {
     @PrimaryKey(autoGenerate = true) var id: Int = 0
+    @ColumnInfo(name = "uri_list") var uriList: List<Uri?> = ArrayList<Uri?>()
 }
