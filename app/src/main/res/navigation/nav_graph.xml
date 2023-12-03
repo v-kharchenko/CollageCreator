@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@+id/fragment_collage_list">
+
+    <fragment
+        android:id="@+id/fragment_collage_editor"
+        android:name="ru.nsu.ccfit.android.g20202.kharchenko.collagecreator.collage_editor.CollageFragment"
+        android:label="fragment_collage_editor"
+        tools:layout="@layout/fragment_collage"/>
+
+    <fragment
+        android:id="@+id/fragment_collage_list"
+        android:name="ru.nsu.ccfit.android.g20202.kharchenko.collagecreator.collages_list.CollageListFragment"
+        android:label="fragment_collage_list"
+        tools:layout="@layout/fragment_collage_list">
+        <action
+            android:id="@+id/action_fragment_collage_list_to_fragment_collage_editor"
+            app:destination="@id/fragment_collage_editor" />
+    </fragment>
+
+</navigation>
