@@ -1,9 +1,11 @@
 package ru.nsu.ccfit.android.g20202.kharchenko.collagecreator.collages_list
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
@@ -29,6 +31,9 @@ class CollageListAdapter : ListAdapter<Collage, CollageListAdapter.CollageViewHo
 
         fun bind(collage: Collage?) {
             (collageItemView.findViewById(R.id.collage_name) as TextView).text = collage!!.name
+
+            Log.println(Log.ERROR, null, "Collage image is${ if (collage.image == null) "" else " not" } null")
+            (collageItemView.findViewById(R.id.miniature) as ImageView).setImageBitmap(collage.image)
 
             collageItemView.setOnClickListener {
                 val bundle = Bundle()

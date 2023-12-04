@@ -10,7 +10,7 @@ interface CollageDao {
     @Query("SELECT * FROM collage_table")
     fun getCollages(): Flow<List<Collage>>
 
-    @Insert(onConflict = OnConflictStrategy.ABORT)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(collage: Collage)
 
     @Query("DELETE FROM collage_table")

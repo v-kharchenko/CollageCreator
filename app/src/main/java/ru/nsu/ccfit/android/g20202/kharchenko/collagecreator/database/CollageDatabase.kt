@@ -18,34 +18,42 @@ abstract class CollageDatabase : RoomDatabase() {
     private class CollageDatabaseCallback(
         private val scope: CoroutineScope
     ) : RoomDatabase.Callback() {
-
+            /*
         override fun onCreate(db: SupportSQLiteDatabase) {
             super.onCreate(db)
             INSTANCE?.let { database ->
                 scope.launch {
                     val collageDao = database.collageDao()
 
+                    collageDao.deleteAll()
+
                     var collage = Collage("Collage One", 3, 3)
-                    collage.uriList = arrayListOf(null, null, null,
+                    collage.uriList = arrayListOf(
                         null, null, null,
-                        null, null, null)
+                        null, null, null,
+                        null, null, null
+                    )
                     collageDao.insert(collage)
 
                     collage = Collage("Collage Two", 3, 4)
-                    collage.uriList = arrayListOf(null, null, null,
+                    collage.uriList = arrayListOf(
                         null, null, null,
                         null, null, null,
-                        null, null, null)
+                        null, null, null,
+                        null, null, null
+                    )
                     collageDao.insert(collage)
 
                     collage = Collage("Collage Three", 4, 3)
-                    collage.uriList = arrayListOf(null, null, null, null,
+                    collage.uriList = arrayListOf(
                         null, null, null, null,
-                        null, null, null, null)
+                        null, null, null, null,
+                        null, null, null, null
+                    )
                     collageDao.insert(collage)
                 }
             }
-        }
+        }*/
     }
 
     companion object {
